@@ -1,0 +1,52 @@
+<!-- book Detail Component -->
+<section class="container py-5">
+  <div class="row" *ngIf="books && books.length > 0">
+    <!-- Book Image -->
+    <div class="col-md-4 mb-4">
+      <img
+        [src]="books![0].imageUrl"
+        [alt]="books![0].title"
+        class="img-fluid rounded shadow"
+      />
+    </div>
+    <!-- Book Title And Author -->
+    <div class="col-md-8">
+      <h1 class="mb-3">{{ books![0].title }}</h1>
+      <h4 class="text-muted mb-4">by {{ books[0].author }}</h4>
+      <div class="card mb-4">
+        <!-- Book Details -->
+        <div class="card-body">
+          <h5 class="card-title">Book Details</h5>
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Genre:</strong> {{ books![0].genre }}</p>
+              <p>
+                <strong>Published Year:</strong> {{ books![0].publishedYear }}
+              </p>
+              <p><strong>Pages:</strong> {{ books![0].pages }}</p>
+              <p><strong>Language:</strong> {{ books![0].language }}</p>
+            </div>
+            <div class="col-md-6">
+              <p><strong>Publisher:</strong> {{ books![0].publisher }}</p>
+              <p><strong>ISBN:</strong> {{ books![0].isbn }}</p>
+              <p>
+                <strong>Rating:</strong>
+                <span class="text-warning">
+                  {{ books![0].rating }}
+                </span>
+              </p>
+              <p><strong>Price:</strong> ${{ books![0].price }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Book Description -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Description</h5>
+          <p class="card-text">{{ books[0].description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
