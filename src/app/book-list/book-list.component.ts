@@ -13,20 +13,13 @@ import { Book } from '../interfaces/book.interfaces';
 })
 export class BookListComponent implements OnInit {
   books?: Book[];
-  selectedBook?: Book;
 
   constructor(private bookService: BookService) {}
 
-  // method to get the list of books
-  // this method is called when the component is initialized
   ngOnInit() {
+    /*
+    @description: this to get the list of books from the book service
+    */
     this.books = this.bookService.getAllBooks();
-  }
-
-  // method to get the book details
-  onSelectBook(bookId: number) {
-    // call the service to get the book details
-    this.selectedBook = this.bookService.bookDeatils(bookId);
-    console.log(this.selectedBook);
   }
 }

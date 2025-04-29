@@ -1,6 +1,6 @@
 import { Book } from './../../interfaces/book.interfaces';
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule, Params } from '@angular/router';
 import { BookService } from '../services/book.service';
 import { CommonModule } from '@angular/common';
 
@@ -17,14 +17,15 @@ export class BookDetailComponent {
     private route: ActivatedRoute,
     private bookService: BookService,
     private router: Router
-  ) {
+  ) {}
+
+  ngOnInit() {
     // subscribe to the route params to get the book id from the url
-    this.route.params.subscribe((params) => {
+    this.route.params.subscribe((params: Params) => {
       // get the book id from the url params and convert it to a number
       const bookId = +params['id'];
       // call the service to get the book details
       const bookDetail = this.bookService.bookDeatils(bookId);
-      // console.log(bookDetail);
       // books is an array of book objects, so we need to check if bookDetail is not undefined
       this.books = bookDetail ? [bookDetail] : undefined;
     });

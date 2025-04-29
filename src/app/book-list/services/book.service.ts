@@ -8,13 +8,22 @@ import { DUMMY_BOOKS } from '../../shared/dummy-data/dummy-books';
 export class BookService {
   private books = DUMMY_BOOKS;
 
-  // method to get all the books
+  /*
+  @description: this to get the list of books from the book service
+  @param: none
+  @return: Book[]
+  */
   getAllBooks(): Book[] {
     return this.books;
   }
 
   // method to get the book details
-  bookDeatils(bookId: number) {
+  /*
+  @description: this to get the book details from the book service
+  @param: bookId: number
+  @return: spacific book details
+  */
+  bookDeatils(bookId: number): Book | undefined {
     return this.books.find((book) => book.id === bookId);
   }
 }
